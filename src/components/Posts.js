@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { fetchPosts } from "../actions/postAction";
+import {connect} from 'react-redux';
+import {fetchPosts} from "../actions/postAction";
 
 class Posts extends Component {
 
@@ -10,7 +10,7 @@ class Posts extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(nextProps.newPost) {
+        if (nextProps.newPost) {
             this.props.posts.unshift(nextProps.newPost)
         }
     }
@@ -25,7 +25,7 @@ class Posts extends Component {
         return (
             <div>
                 <h1>Posts</h1>
-                { postItems }
+                {postItems}
             </div>
         )
     }
@@ -38,8 +38,8 @@ Posts.propTypes = {
 };
 
 const mapStateToProps = state => ({
-   posts: state.posts.items,
-   newPost: state.posts.item
+    posts: state.posts.items,
+    newPost: state.posts.item
 });
 
-export default connect(mapStateToProps, { fetchPosts })(Posts);
+export default connect(mapStateToProps, {fetchPosts})(Posts);
